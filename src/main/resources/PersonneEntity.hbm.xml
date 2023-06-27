@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.PersonneEntity" table="PERSONNE" schema="EQUIPE112">
+        <id name="idpersonne">
+            <column name="IDPERSONNE" sql-type="number(*)" precision="2147483646"/>
+        </id>
+        <property name="prenom">
+            <column name="PRENOM" sql-type="varchar2(25)" length="25"/>
+        </property>
+        <property name="nomfamille">
+            <column name="NOMFAMILLE" sql-type="varchar2(25)" length="25"/>
+        </property>
+        <property name="courriel">
+            <column name="COURRIEL" sql-type="varchar2(50)" length="50"/>
+        </property>
+        <property name="telephone">
+            <column name="TELEPHONE" sql-type="varchar2(12)" length="12"/>
+        </property>
+        <property name="motdepasse">
+            <column name="MOTDEPASSE" sql-type="varchar2(15)" length="15"/>
+        </property>
+        <property name="datedenaissance">
+            <column name="DATEDENAISSANCE" sql-type="date"/>
+        </property>
+        <property name="adresse">
+            <column name="ADRESSE" sql-type="varchar2(500)" length="500"/>
+        </property>
+        <one-to-one name="clients" class="com.hibernate.ClientEntity"/>
+    </class>
+</hibernate-mapping>

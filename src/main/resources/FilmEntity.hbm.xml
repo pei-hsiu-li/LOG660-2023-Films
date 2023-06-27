@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.FilmEntity" table="FILM" schema="EQUIPE112">
+        <id name="idfilm">
+            <column name="IDFILM" sql-type="number(*)" precision="2147483646"/>
+        </id>
+        <property name="titre">
+            <column name="TITRE" sql-type="varchar2(100)" length="100" not-null="true"/>
+        </property>
+        <property name="anneesortie">
+            <column name="ANNEESORTIE" sql-type="number(4)" precision="4" not-null="true"/>
+        </property>
+        <property name="langue">
+            <column name="LANGUE" sql-type="varchar2(25)" length="25" not-null="true"/>
+        </property>
+        <property name="duree">
+            <column name="DUREE" sql-type="number(*)" precision="2147483646" not-null="true"/>
+        </property>
+        <property name="resume">
+            <column name="RESUME" sql-type="clob" not-null="true"/>
+        </property>
+        <property name="affiche">
+            <column name="AFFICHE" sql-type="varchar2(250)" length="250" not-null="true"/>
+        </property>
+        <property name="nombrecopytotal">
+            <column name="NOMBRECOPYTOTAL" sql-type="number(*)" precision="2147483646" not-null="true"/>
+        </property>
+        <set name="copiephysiquefilms" inverse="true">
+            <key>
+                <column name="IDFILM"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.hibernate.CopiephysiquefilmEntity"/>
+        </set>
+        <set name="roleArtistes" inverse="true">
+            <key>
+                <column name="IDFILM"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.hibernate.FilmartisteEntity"/>
+        </set>
+        <set name="bandeAnnonces" inverse="true">
+            <key>
+                <column name="IDFILM"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.hibernate.BandeannonceEntity"/>
+        </set>
+        <set name="genres" table="FILMGENRE" schema="EQUIPE112" catalog="">
+            <key>
+                <column name="IDFILM"/>
+            </key>
+            <many-to-many not-found="ignore" class="com.hibernate.GenreEntity">
+                <column name="GENRE"/>
+            </many-to-many>
+        </set>
+        <set name="pays" table="FILMPAYS" schema="EQUIPE112" catalog="">
+            <key>
+                <column name="IDFILM"/>
+            </key>
+            <many-to-many not-found="ignore" class="com.hibernate.PaysEntity">
+                <column name="PAYS"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

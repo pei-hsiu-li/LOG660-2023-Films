@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.FilmartisteEntity" table="FILMARTISTE" schema="EQUIPE112">
+        <composite-id mapped="true" class="com.hibernate.FilmartisteEntityPK">
+            <key-property name="idfilm">
+                <column name="IDFILM" sql-type="number(*)" precision="2147483646"/>
+            </key-property>
+            <key-property name="idartiste">
+                <column name="IDARTISTE" sql-type="number(*)" precision="2147483646"/>
+            </key-property>
+            <key-property name="metier">
+                <column name="METIER" sql-type="varchar2(20)" length="20"/>
+            </key-property>
+        </composite-id>
+        <property name="personnage">
+            <column name="PERSONNAGE" sql-type="varchar2(200)" length="200" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

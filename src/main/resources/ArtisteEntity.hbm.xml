@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.ArtisteEntity" table="ARTISTE" schema="EQUIPE112">
+        <id name="idartiste">
+            <column name="IDARTISTE" sql-type="number(*)" precision="2147483646"/>
+        </id>
+        <property name="nom">
+            <column name="NOM" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </property>
+        <property name="prenom">
+            <column name="PRENOM" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </property>
+        <property name="photo">
+            <column name="PHOTO" sql-type="varchar2(250)" length="250" not-null="true"/>
+        </property>
+        <property name="datedenaissance">
+            <column name="DATEDENAISSANCE" sql-type="date" not-null="true"/>
+        </property>
+        <property name="biographie">
+            <column name="BIOGRAPHIE" sql-type="clob" not-null="true"/>
+        </property>
+        <property name="lieunaissance">
+            <column name="LIEUNAISSANCE" sql-type="varchar2(150)" length="150" not-null="true"/>
+        </property>
+        <set name="contrats" inverse="true">
+            <key>
+                <column name="IDARTISTE"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.hibernate.FilmartisteEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

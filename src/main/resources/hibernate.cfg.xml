@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:oracle:thin:@log660ora12c.logti.etsmtl.ca:1521:LOG660</property>
+    <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+    <property name="connection.username">EQUIPE112</property>
+    <property name="connection.password">BXmmDXlK</property>
+    <property name="hibernate.hbm2ddl.auto">validate</property>
+      <mapping class="com.hibernate.AbonnementEntity"/>
+    <mapping resource="AbonnementEntity.hbm.xml"/>
+    <mapping class="com.hibernate.ClientEntity"/>
+    <mapping resource="ClientEntity.hbm.xml"/>
+    <mapping resource="CopiephysiquefilmEntity.hbm.xml"/>
+    <mapping class="com.hibernate.CopiephysiquefilmEntity"/>
+    <mapping class="com.hibernate.FilmEntity"/>
+    <mapping resource="FilmEntity.hbm.xml"/>
+    <mapping class="com.hibernate.ForfaitEntity"/>
+    <mapping resource="ForfaitEntity.hbm.xml"/>
+    <mapping class="com.hibernate.LocationEntity"/>
+    <mapping resource="LocationEntity.hbm.xml"/>
+    <mapping resource="PersonneEntity.hbm.xml"/>
+    <mapping class="com.hibernate.PersonneEntity"/>
+    <mapping class="com.hibernate.BandeannonceEntity"/>
+    <mapping resource="BandeannonceEntity.hbm.xml"/>
+    <mapping class="com.hibernate.GenreEntity"/>
+    <mapping class="com.hibernate.PaysEntity"/>
+      <mapping resource="GenreEntity.hbm.xml"/>
+      <mapping resource="PaysEntity.hbm.xml"/>
+      <mapping class="com.hibernate.ArtisteEntity"/>
+      <mapping resource="ArtisteEntity.hbm.xml"/>
+      <mapping class="com.hibernate.FilmartisteEntity"/>
+      <mapping resource="FilmartisteEntity.hbm.xml"/>
+      <mapping class="com.hibernate.CartedecreditEntity"/>
+      <mapping resource="CartedecreditEntity.hbm.xml"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

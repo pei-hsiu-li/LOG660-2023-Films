@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.CartedecreditEntity" table="CARTEDECREDIT" schema="EQUIPE112">
+        <id name="numero">
+            <column name="NUMERO" sql-type="varchar2(19)" length="19"/>
+        </id>
+        <property name="typecarte">
+            <column name="TYPECARTE" sql-type="varchar2(20)" length="20"/>
+        </property>
+        <property name="dateexpiration">
+            <column name="DATEEXPIRATION" sql-type="date"/>
+        </property>
+        <property name="idclient">
+            <column name="IDCLIENT" sql-type="number(*)" precision="2147483646"/>
+        </property>
+    </class>
+</hibernate-mapping>

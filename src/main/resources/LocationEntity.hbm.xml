@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.LocationEntity" table="LOCATION" schema="EQUIPE112">
+        <id name="idlocation">
+            <column name="IDLOCATION" sql-type="number(*)" precision="2147483646"/>
+
+            <generator class="sequence">
+                <param name="sequence_name">LOCATION_SEQ</param>
+                <param name="increment_size">1</param>
+            </generator>
+        </id>
+        <property name="idclient">
+            <column name="IDCLIENT" sql-type="number(*)" precision="2147483646"/>
+        </property>
+        <property name="codefilm">
+            <column name="CODEFILM" sql-type="number(7)" precision="7"/>
+        </property>
+        <property name="datepret">
+            <column name="DATEPRET" sql-type="date" not-null="true"/>
+        </property>
+        <property name="dateretour">
+            <column name="DATERETOUR" sql-type="date"/>
+        </property>
+        <one-to-one name="copiephysiquefilm" class="com.hibernate.CopiephysiquefilmEntity"/>
+    </class>
+</hibernate-mapping>

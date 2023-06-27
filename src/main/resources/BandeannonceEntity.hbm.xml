@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.BandeannonceEntity" table="BANDEANNONCE" schema="EQUIPE112">
+        <composite-id mapped="true" class="com.hibernate.BandeannonceEntityPK">
+            <key-property name="lienbandeannonce">
+                <column name="LIENBANDEANNONCE" sql-type="varchar2(250)" length="250"/>
+            </key-property>
+            <key-property name="idfilm">
+                <column name="IDFILM" sql-type="number(*)" precision="2147483646"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.hibernate.ClientEntity" table="CLIENT" schema="EQUIPE112">
+        <id name="idclient">
+            <column name="IDCLIENT" sql-type="number(*)" precision="2147483646"/>
+        </id>
+        <property name="idpersonne">
+            <column name="IDPERSONNE" sql-type="number(*)" precision="2147483646"/>
+        </property>
+        <one-to-one name="abonnements" class="com.hibernate.AbonnementEntity"/>
+<!--        <one-to-one name="cartedecredits" class="com.hibernate.CartedecreditEntity"/>-->
+    </class>
+</hibernate-mapping>
